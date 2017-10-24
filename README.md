@@ -17,4 +17,18 @@ With the GitHub Pages activation, your site is published at https://yourusername
 
 2) Select one of the available themes then click on the `Select theme` button
 
-## Customization
+## Configuration
+
+All the configuration is done in the `index.md` front matter
+
+## Who is using jeklist ?
+
+https://fgallaire.github.io/white_papers
+
+If you use jeklist, please add your link here and make a pull request
+
+## License
+
+This work is under MIT license
+
+Copyright © 2017, [Florent Gallaire](https://f.gallai.re)
