@@ -10,3 +10,5 @@ extensions:
     {% endif %}
 {% endfor %}
 </ul>
+
+This site is done with [jeklist](https://github.com/fgallaire/jeklist)
