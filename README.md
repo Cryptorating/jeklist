@@ -19,7 +19,18 @@ With the GitHub Pages activation, your site is published at https://yourusername
 
 ## Configuration
 
-All the configuration is done in the `index.md` front matter
+All the configuration is done in the `index.md` front matter. Set `extensions` and `directories` to restrict the content you want to show.
+
+Example to only show `pdf` files from the `Papers` directory:
+
+```
+---
+extensions:
+   - .pdf
+directories:
+   - Papers 
+---
+```
 
 ## Who is using jeklist ?
 
