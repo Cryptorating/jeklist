@@ -1,12 +1,17 @@
 ---
 extensions:
-   - .pdf
+  # - .pdf
+directories:
+  # - Papers 
 ---
 
 <ul>
 {% for file in site.static_files %}
-    {% if page.extensions contains file.extname %}
-        <li><a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.path }}</a></li>
+    {% if page.extensions == null or page.extensions contains file.extname %}
+        {% assign dirs = file.path | split: '/' %}
+        {% if page.directories == null or page.directories contains dirs[1] %}
+            <li><a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.path }}</a></li>
+        {% endif %}
     {% endif %}
 {% endfor %}
 </ul>
