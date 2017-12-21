@@ -34,7 +34,7 @@ directories:
 
 ## Who is using jeklist ?
 
-https://cryptorating.github.io/white_papers
+https://cryptorating.eu/white_papers
 
 If you use jeklist, please add your link here and make a pull request
 
