@@ -2,7 +2,9 @@
 extensions:
   # - .pdf
 directories:
-  # - Papers 
+  # - Papers
+html_link:
+  - .md
 ---
 
 <ul>
@@ -10,7 +12,13 @@ directories:
     {% if page.extensions == null or page.extensions contains file.extname %}
         {% assign dirs = file.path | split: '/' %}
         {% if page.directories == null or page.directories contains dirs[1] %}
-            <li><a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.path }}</a></li>
+            {% if page.html_link contains file.extname %}
+                {% assign index = file.path.size | minus: file.extname.size %}
+                {% assign fpath = file.path | slice: 0, index %}
+                <li><a href="{{ site.github.baseurl }}{{ fpath }}">{{ fpath | slice: 1, fpath.size | truncate: 60 }}</a> (<a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.extname }}</a>)</li>
+            {% else %}
+                <li><a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.path | slice: 1, file.path.size | truncate: 60 }}</a></li>
+            {% endif %}
         {% endif %}
     {% endif %}
 {% endfor %}
