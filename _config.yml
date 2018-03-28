@@ -1,2 +1,17 @@
 theme: jekyll-theme-minimal
 markdown_ext: "md,txt"
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      extensions:
+      # - .pdf
+      directories:
+      # - Papers
+      exclude_directories:
+      # - Images
+      truncate: 56
+      html_link:
+        - .md
