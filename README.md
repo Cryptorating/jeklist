@@ -19,17 +19,24 @@ With the GitHub Pages activation, your site is published at https://yourusername
 
 ## Configuration
 
-All the configuration is done in the `index.md` front matter. Set `extensions` and `directories` to restrict the content you want to show.
+All the configuration is done in the `_config.yml` file. Set `extensions` and `directories` to restrict the content you want to show. Set `truncate` and `html_link` to modify the presentation look.
 
-Example to only show `pdf` files from the `Papers` directory:
+Example to only show `pdf` and `md` files from the `Papers` directory truncated to `60` chars and with `html_link` for the `md` files :
 
 ```
----
-extensions:
-   - .pdf
-directories:
-   - Papers 
----
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      extensions:
+        - .pdf
+        - .md
+      directories:
+        - Papers
+      truncate: 60
+      html_link:
+        - .md
 ```
 
 ## Who is using jeklist ?
