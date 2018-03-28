@@ -2,25 +2,23 @@
 {% for file in site.static_files %}
     {% if page.extensions == null or page.extensions contains file.extname %}
         {% assign dirs = file.path | split: '/' %}
-        {% unless page.exclude_directories contains dirs[1] %}
-            {% if page.directories == null or page.directories contains dirs[1] %}
-                {% if page.html_link contains file.extname %}
-                    {% assign index = file.path.size | minus: file.extname.size %}
-                    {% assign fpath = file.path | slice: 0, index %}
-                    {% if page.truncate == null %}
-                        <li><a href="{{ site.github.baseurl }}{{ fpath }}">{{ fpath | slice: 1, fpath.size }}</a> (<a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.extname }}</a>)</li>
-                    {% else %}
-                        <li><a href="{{ site.github.baseurl }}{{ fpath }}">{{ fpath | slice: 1, fpath.size | truncate: page.truncate }}</a> (<a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.extname }}</a>)</li>
-                    {% endif %}
+        {% if page.directories == null or page.directories contains dirs[1] %}
+            {% if page.html_link contains file.extname %}
+                {% assign index = file.path.size | minus: file.extname.size %}
+                {% assign fpath = file.path | slice: 0, index %}
+                {% if page.truncate == null %}
+                    <li><a href="{{ site.github.baseurl }}{{ fpath }}">{{ fpath | slice: 1, fpath.size }}</a> (<a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.extname }}</a>)</li>
                 {% else %}
-                    {% if page.truncate == null %}
-                        <li><a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.path | slice: 1, file.path.size }}</a></li>
-                    {% else %}
-                        <li><a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.path | slice: 1, file.path.size | truncate: page.truncate }}</a></li>
-                    {% endif %}
+                    <li><a href="{{ site.github.baseurl }}{{ fpath }}">{{ fpath | slice: 1, fpath.size | truncate: page.truncate }}</a> (<a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.extname }}</a>)</li>
+                {% endif %}
+            {% else %}
+                {% if page.truncate == null %}
+                    <li><a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.path | slice: 1, file.path.size }}</a></li>
+                {% else %}
+                    <li><a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.path | slice: 1, file.path.size | truncate: page.truncate }}</a></li>
                 {% endif %}
             {% endif %}
-        {% endunless %}
+        {% endif %}
     {% endif %}
 {% endfor %}
 </ul>
