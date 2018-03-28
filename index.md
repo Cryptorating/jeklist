@@ -1,15 +1,3 @@
----
-extensions:
-  # - .pdf
-directories:
-  # - Papers
-exclude_directories:
-  # - Images
-truncate: 56
-html_link:
-  - .md
----
-
 <ul>
 {% for file in site.static_files %}
     {% if page.extensions == null or page.extensions contains file.extname %}
