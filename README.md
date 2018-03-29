@@ -5,17 +5,17 @@ Build a Jekyll list of your static content in seconds, without touching the comm
 
 ## Installation
 
-1) Fork this repository
+1. Fork this repository
 
-2) Go to Settings->GitHub Pages, select `master branch` then click on the `Save` button
+2. Go to Settings->GitHub Pages, select `master branch` then click on the `Save` button
 
 With the GitHub Pages activation, your site is published at https://yourusername.github.io/jeklist
 
 ## Change theme
 
-1) Go to Settings->GitHub Pages then click on the `Change theme` button
+1. Go to Settings->GitHub Pages then click on the `Change theme` button
 
-2) Select one of the available themes then click on the `Select theme` button
+2. Select one of the available themes then click on the `Select theme` button
 
 ## Configuration
 
@@ -34,6 +34,14 @@ truncate: 60
 html_link:
   - .md
 ```
+
+Besides nothing, `style` option can have three values:
+- `list` for a flat bullet list
+- `nlist` for a flat numbered list
+- `dir` for a first level directory structure
+
+The `spacification` option can be useful when `style` is set to `dir`, to replace a selected char by a space in the directory names.
+
 
 ## Who is using jeklist ?
 
