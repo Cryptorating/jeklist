@@ -7,7 +7,7 @@ defaults:
     scope:
       path: ""
     values:
-      style: "list"
+      style: "dir"
       extensions:
       # - .pdf
       directories:

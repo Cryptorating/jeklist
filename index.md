@@ -2,12 +2,23 @@
 {% if page.style == 'list' %}
     <ul>
 {% endif %}
+{% assign directory = '' %}
 {% for file in site.static_files %}
     {% if page.extensions == null or page.extensions contains file.extname %}
         {% assign dirs = file.path | split: '/' %}
+        {% if dirs[1] != directory and  page.style == 'dir' %}
+            {% if directory != '' %}
+            </dl>
+            {% endif %}
+            {% assign directory = dirs[1] %}
+            <dt>{{ directory }}</dt>
+            <dl>
+        {% endif %}
         {% if page.directories == null or page.directories contains dirs[1] %}
             {% if page.style == 'list' %}
                 <li>
+            {% elsif page.style == 'dir' %}
+                <dd>
             {% endif %}
             {% if page.html_link contains file.extname %}
                 {% assign index = file.path.size | minus: file.extname.size %}
@@ -26,6 +37,8 @@
             {% endif %}
             {% if page.style == 'list' %}
                 </li>
+            {% elsif page.style == 'dir' %}
+                </dd>
             {% elsif page.style == null %}
                 <br>
             {% endif %}
@@ -34,6 +47,8 @@
 {% endfor %}
 {% if page.style == 'list' %}
     </ul>
+{% elsif page.style == 'dir' %}
+    </dl>
 {% endif %}
 </div>
 
