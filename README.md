@@ -24,20 +24,15 @@ All the configuration is done in the `_config.yml` file. Set `extensions` and `d
 Example to only show `pdf` and `md` files from the `Papers` directory in a `list `truncated to `60` chars and with `html_link` for the `md` files :
 
 ```
-defaults:
-  -
-    scope:
-      path: ""
-    values:
-      style: "list"
-      extensions:
-        - .pdf
-        - .md
-      directories:
-        - Papers
-      truncate: 60
-      html_link:
-        - .md
+style: "list"
+extensions:
+  - .pdf
+  - .md
+directories:
+  - Papers
+truncate: 60
+html_link:
+  - .md
 ```
 
 ## Who is using jeklist ?

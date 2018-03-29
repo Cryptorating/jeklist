@@ -2,16 +2,11 @@ theme: jekyll-theme-minimal
 markdown_ext: "md,txt"
 include: README.md
 
-defaults:
-  -
-    scope:
-      path: ""
-    values:
-      style: "nlist"
-      extensions:
-      # - .pdf
-      directories:
-      # - Papers
-      truncate: 56
-      html_link:
-        - .md
+style: "nlist"
+extensions:
+# - .pdf
+directories:
+# - Papers
+truncate: 56
+html_link:
+  - .md
