@@ -25,16 +25,26 @@
             {% if site.html_link contains file.extname %}
                 {% assign index = file.path.size | minus: file.extname.size %}
                 {% assign fpath = file.path | slice: 0, index %}
-                {% if site.truncate == null %}
-                <a href="{{ site.github.baseurl }}{{ fpath }}">{{ fpath | slice: 1, fpath.size }}</a> (<a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.extname }}</a>)
+                {% if site.style == 'dir' %}
+                    {% assign fname = file.basename %}
                 {% else %}
-                <a href="{{ site.github.baseurl }}{{ fpath }}">{{ fpath | slice: 1, fpath.size | truncate: site.truncate }}</a> (<a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.extname }}</a>)
+                    {% assign fname = fpath | slice: 1, fpath.size %}
+                {% endif %}
+                {% if site.truncate == null %}
+                <a href="{{ site.github.baseurl }}{{ fpath }}">{{ fname }}</a> (<a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.extname }}</a>)
+                {% else %}
+                <a href="{{ site.github.baseurl }}{{ fpath }}">{{ fname | truncate: site.truncate }}</a> (<a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.extname }}</a>)
                 {% endif %}
             {% else %}
-                {% if site.truncate == null %}
-                <a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.path | slice: 1, file.path.size }}</a>
+                {% if site.style == 'dir' %}
+                    {% assign fname = file.name %}
                 {% else %}
-                <a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.path | slice: 1, file.path.size | truncate: site.truncate }}</a>
+                    {% assign fname = file.path | slice: 1, file.path.size %}
+                {% endif %}
+                {% if site.truncate == null %}
+                <a href="{{ site.github.baseurl }}{{ file.path }}">{{ fname }}</a>
+                {% else %}
+                <a href="{{ site.github.baseurl }}{{ file.path }}">{{ fname | truncate: site.truncate }}</a>
                 {% endif %}
             {% endif %}
             {% if site.style contains 'list' %}
