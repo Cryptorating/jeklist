@@ -2,7 +2,7 @@ theme: jekyll-theme-minimal
 markdown_ext: "md,txt"
 include: README.md
 
-style: dir
+style: list
 extensions:
 # - .pdf
 directories:
