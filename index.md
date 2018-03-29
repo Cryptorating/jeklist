@@ -8,6 +8,7 @@
     <ol>
 {% endif %}
 {% assign directory = '' %}
+{% assign baseurl = site.github.baseurl %}
 {% for file in site.static_files %}
     {% if site.extensions == null or site.extensions contains file.extname %}
         {% assign dirs = file.path | split: '/' %}
@@ -34,9 +35,9 @@
                     {% assign fname = fpath | slice: 1, fpath.size %}
                 {% endif %}
                 {% if site.truncate == null %}
-                    <a href="{{ site.github.baseurl }}{{ fpath }}">{{ fname }}</a> (<a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.extname }}</a>)
+                    <a href="{{ baseurl }}{{ fpath }}">{{ fname }}</a> (<a href="{{ baseurl }}{{ file.path }}">{{ file.extname }}</a>)
                 {% else %}
-                    <a href="{{ site.github.baseurl }}{{ fpath }}">{{ fname | truncate: site.truncate }}</a> (<a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.extname }}</a>)
+                    <a href="{{ baseurl }}{{ fpath }}">{{ fname | truncate: site.truncate }}</a> (<a href="{{ baseurl }}{{ file.path }}">{{ file.extname }}</a>)
                 {% endif %}
             {% else %}
                 {% if site.style == 'dir' %}
@@ -45,9 +46,9 @@
                     {% assign fname = file.path | slice: 1, file.path.size %}
                 {% endif %}
                 {% if site.truncate == null %}
-                    <a href="{{ site.github.baseurl }}{{ file.path }}">{{ fname }}</a>
+                    <a href="{{ baseurl }}{{ file.path }}">{{ fname }}</a>
                 {% else %}
-                    <a href="{{ site.github.baseurl }}{{ file.path }}">{{ fname | truncate: site.truncate }}</a>
+                    <a href="{{ baseurl }}{{ file.path }}">{{ fname | truncate: site.truncate }}</a>
                 {% endif %}
             {% endif %}
             {% if site.style contains 'list' %}
