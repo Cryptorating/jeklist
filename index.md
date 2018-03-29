@@ -26,6 +26,8 @@
             {% endif %}
             {% if page.style == 'list' %}
                 </li>
+            {% elsif page.style == null %}
+                <br>
             {% endif %}
         {% endif %}
     {% endif %}
