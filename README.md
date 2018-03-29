@@ -19,7 +19,7 @@ With the GitHub Pages activation, your site is published at https://yourusername
 
 ## Configuration
 
-All the configuration is done in the `_config.yml` file. Set `extensions` and `directories` to restrict the content you want to show. Set `style`, `truncate` and `html_link` to modify the presentation look.
+All the configuration is done in the `_config.yml` file. Set `extensions` and `directories` to restrict the content you want to show. Set `style`, `spacification`, `truncate` and `html_link` to modify the presentation look.
 
 Example to only show `pdf` and `md` files from the `Papers` directory in a `list` truncated to `60` chars and with `html_link` for the `md` files :
 
