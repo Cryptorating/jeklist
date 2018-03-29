@@ -1,6 +1,8 @@
 <div>
 {% if page.style == 'list' %}
     <ul>
+{% elsif page.style == 'nlist' %}
+    <ol>
 {% endif %}
 {% assign directory = '' %}
 {% for file in site.static_files %}
@@ -15,7 +17,7 @@
             <dl>
         {% endif %}
         {% if page.directories == null or page.directories contains dirs[1] %}
-            {% if page.style == 'list' %}
+            {% if page.style contains 'list' %}
                 <li>
             {% elsif page.style == 'dir' %}
                 <dd>
@@ -35,7 +37,7 @@
                 <a href="{{ site.github.baseurl }}{{ file.path }}">{{ file.path | slice: 1, file.path.size | truncate: page.truncate }}</a>
                 {% endif %}
             {% endif %}
-            {% if page.style == 'list' %}
+            {% if page.style contains 'list' %}
                 </li>
             {% elsif page.style == 'dir' %}
                 </dd>
@@ -47,6 +49,8 @@
 {% endfor %}
 {% if page.style == 'list' %}
     </ul>
+{% elsif page.style == 'nlist' %}
+    </ol>
 {% elsif page.style == 'dir' %}
     </dl>
 {% endif %}
