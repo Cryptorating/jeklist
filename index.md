@@ -1,3 +1,6 @@
+---
+---
+
 <div>
 {% if site.style == 'list' %}
     <ul>
