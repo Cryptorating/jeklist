@@ -1,31 +1,27 @@
 ---
 ---
 
+{% assign index = page.url.size | minus: 2 %}
+{% assign directory = page.url | slice: 1, index %}
+{% assign baseurl = site.github.baseurl %}
+
 <div>
 {% if site.style == 'list' %}
     <ul>
 {% elsif site.style == 'nlist' %}
     <ol>
+{% elsif site.style == 'dir' %}
+    <dl>
+    {% if site.spacification == null %}
+        <dt>{{ directory }}</dt>
+    {% else %}
+        <dt>{{ directory | replace: site.spacification, ' ' }}</dt>
+    {% endif %}
 {% endif %}
-{% assign directory = '' %}
-{% assign baseurl = site.github.baseurl %}
 {% for file in site.static_files %}
     {% if site.extensions == null or site.extensions contains file.extname %}
         {% assign dirs = file.path | split: '/' %}
-        {% unless site.style == 'dir' and dirs.size < 3 %}
-        {% if dirs[1] != directory and  site.style == 'dir' %}
-            {% if directory != '' %}
-                </dl>
-            {% endif %}
-            {% assign directory = dirs[1] %}
-            <dl>
-            {% if site.spacification == null %}
-                <dt><a href="{{ baseurl }}/{{ directory }}">{{ directory }}</a></dt>
-            {% else %}
-                <dt><a href="{{ baseurl }}/{{ directory }}">{{ directory | replace: site.spacification, ' ' }}</a></dt>
-            {% endif %}
-        {% endif %}
-        {% if site.directories == null or site.directories contains dirs[1] %}
+        {% if dirs[1] == directory %}
             {% if site.style contains 'list' %}
                 <li>
             {% elsif site.style == 'dir' %}
@@ -64,7 +60,6 @@
                 <br>
             {% endif %}
         {% endif %}
-        {% endunless %}
     {% endif %}
 {% endfor %}
 {% if site.style == 'list' %}
