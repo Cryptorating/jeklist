@@ -5,7 +5,11 @@
 {% if site.style == 'list' %}
     <ul>
 {% elsif site.style == 'nlist' %}
-    <ol>
+    {% if site.nlist_type == null %}
+        <ol>
+    {% else %}
+        <ol type="{{ site.nlist_type }}">
+    {% endif %}
 {% endif %}
 {% assign directory = '' %}
 {% assign baseurl = site.github.baseurl %}

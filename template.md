@@ -9,7 +9,11 @@
 {% if site.style == 'list' %}
     <ul>
 {% elsif site.style == 'nlist' %}
-    <ol>
+    {% if site.nlist_type == null %}
+        <ol>
+    {% else %}
+        <ol type="{{ site.nlist_type }}">
+    {% endif %}
 {% elsif site.style == 'dir' %}
     <dl>
     {% if site.dir_spacification == null %}

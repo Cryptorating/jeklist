@@ -2,9 +2,9 @@ theme: jekyll-theme-minimal
 markdown_ext: "md,txt"
 include: README.md
 
-style: dir
+style: nlist
+nlist_type: I
 dir_spacification: "-"
-dir_links: true
 extensions:
 # - .pdf
 directories:
