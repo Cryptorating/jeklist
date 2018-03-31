@@ -3,7 +3,8 @@ markdown_ext: "md,txt"
 include: README.md
 
 style: dir
-spacification: "-"
+dir_spacification: "-"
+dir_links: true
 extensions:
 # - .pdf
 directories:

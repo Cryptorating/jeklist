@@ -40,7 +40,7 @@ Besides nothing, `style` option can have three values:
 - `nlist` for a flat numbered list
 - `dir` for a first level directory structure
 
-The `spacification` option can be useful when `style` is set to `dir`, to replace a selected char by a space in the directory names.
+The `dir_spacification` and `dir_links` options can be useful when `style` is set to `dir`, to replace a selected char by a space in the directory names and to add directory links.
 
 
 ## Who is using jeklist ?

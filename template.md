@@ -12,10 +12,10 @@
     <ol>
 {% elsif site.style == 'dir' %}
     <dl>
-    {% if site.spacification == null %}
+    {% if site.dir_spacification == null %}
         <dt>{{ directory }}</dt>
     {% else %}
-        <dt>{{ directory | replace: site.spacification, ' ' }}</dt>
+        <dt>{{ directory | replace: site.dir_spacification, ' ' }}</dt>
     {% endif %}
 {% endif %}
 {% for file in site.static_files %}
